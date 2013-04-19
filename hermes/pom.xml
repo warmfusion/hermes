@@ -5,6 +5,7 @@
 	<artifactId>hermes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Hermes</name>
+	<description>God of transitions and boundaries, Hermes acts as the message carrier between applications and test suites, where test cases may dispatch responses for messages from the applications.</description>
 
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
