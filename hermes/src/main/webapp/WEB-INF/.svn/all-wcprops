@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/SpringRest/!svn/ver/2/trunk/src/main/webapp/WEB-INF
+END
+mvc-dispatcher-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SpringRest/!svn/ver/2/trunk/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/SpringRest/!svn/ver/2/trunk/src/main/webapp/WEB-INF/web.xml
+END
