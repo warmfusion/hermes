@@ -3,6 +3,8 @@ package net.tobyjackson.hermes;
 import java.util.Map;
 import java.util.TreeMap;
 
+import net.tobyjackson.hermes.service.SimpleStringService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,35 +17,38 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HermesServiceController {
 
 	// Stores computers
-	private static final Map<Long, String> serviceStorage = new TreeMap<Long, String>();
+	private static final Map<Long, HermesService> serviceStorage = new TreeMap<Long, HermesService>();
 	
 	{
 		System.out.println("Class");
 	}
 	static{
 		System.out.println("Static");
-		serviceStorage.put(0l, "Hello World!");
+		SimpleStringService s = new SimpleStringService();
+		s.setResponse("MyFixedResponse");
+		
+		serviceStorage.put(0l, s);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET) 
-	public @ResponseBody Map<Long, String> getConfiguredServices() { 		
+	public @ResponseBody Map<Long, HermesService> getConfiguredServices() { 		
 		return serviceStorage;
 	}
 	
 	@RequestMapping(value="{id}",method = RequestMethod.GET)	
-	public @ResponseBody String getService(@PathVariable long serviceID) {		
+	public @ResponseBody HermesService getService(@PathVariable long serviceID) {		
 		return serviceStorage.get(serviceID);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST) 	 
-	public @ResponseBody long addService(@RequestBody String serviceDefinition) {		
+	public @ResponseBody long addService(@RequestBody HermesService serviceDefinition) {		
 		serviceStorage.put( (long)serviceStorage.size(), serviceDefinition);
 		return serviceStorage.size()-1;
 	}
 	
 	@RequestMapping(value="{id}",method = RequestMethod.PUT)
 	@ResponseBody
-	public void putService(@PathVariable long serviceID, @RequestBody String serviceDefinition) {		
+	public void putService(@PathVariable long serviceID, @RequestBody HermesService serviceDefinition) {		
 		serviceStorage.put(serviceID, serviceDefinition);
 	}	
 
