@@ -13,7 +13,13 @@
 	</properties>
 
 	<dependencies>
-
+		<!-- netty provides the socket service interactions for running simulators -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.0.0.CR1</version>
+		</dependency>
+		            
 		<!-- Spring 3 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
